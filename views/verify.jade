@@ -1,0 +1,10 @@
+extends layout
+
+block content
+  #viz
+    canvas#analyser(width="1024", height="500")
+    canvas#wavedisplay(width="1024", height="500")
+  #controls
+    img#record(src="images/mic128.png" onclick="toggleRecording(this);")
+    a#save(href="#")
+      img(src="images/save.svg")

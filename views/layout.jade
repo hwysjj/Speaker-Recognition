@@ -1,0 +1,24 @@
+doctype html
+html
+  head
+    meta(name="viewport", content="width=device-width,initial-scale=1")
+    title= title
+    script(type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js")
+    script(src="/javascripts/audiodisplay.js")
+    script(src="/javascripts/recorderjs/recorder.js")
+    script(src="/javascripts/main.js")
+    script(src="/javascripts/createprofile.js")
+    link(type="text/css", rel="stylesheet", href="/materialize/css/materialize.min.css", media="screen,projection")
+    script(type="text/javascript" src="/materialize/js/materialize.min.js")
+    link(rel='stylesheet', href='/stylesheets/style.css')
+
+  body(style="display: flex;min-height: 100vh; flex-direction: column;")
+    nav
+      .nav-wrapper
+          a.brand-logo.center #{title}
+    main.container(style="flex:1 0 auto;margin-top:50px;")
+      block content
+    footer.page-footer(style="padding-top: 0")
+      .footer-copyright
+        .container.center
+          | © 2017 Copyright GreenDot

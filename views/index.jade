@@ -1,0 +1,26 @@
+extends layout
+
+block content
+    h4.center(style="margin-bottom:40px;") Welcome to GreenDot
+    .row
+      Form.col.s12
+        .row
+          .input-field.col.s6
+            input#first_name.validate(placeholder="Placeholder", type="text")
+            label(for="first_name") First Name
+          .input-field.col.s6
+            input#last_name.validate(type="text")
+            label(for="last_name") Last Name
+        .row
+          .input-field.col.s12
+            input#password.validate(type="password")
+            label(for="password") Password
+        .row
+          .input-field.col.s12
+            input#email.validate(type="email")
+            label(for="email") Email
+        .row.co.s12.center
+            a.waves-effect.waves-light.btn-large#signup submit
+
+
+

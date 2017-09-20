@@ -1,0 +1,25 @@
+extends layout
+
+block content
+    h4(style="margin-bottom:40px;") Thanks for shopping, you need pay $20, please speak to pay!
+    .center
+        #preload.progress.hide
+            .indeterminate
+        img#record.center(src="images/mic128.png" onclick="toggleRecording(this);")
+    #confirmPassword.hide
+        p#result
+        .row(style="margin-left:0px;")
+            .col.s12
+            | Password:&nbsp;
+            .input-field.inline
+                input#password(type="password" class="validate")
+        a#submit.waves-effect.waves-light.btn-large(href="#!") Confirm
+    #vizh.hide
+        canvas#analyser(width="1024", height="500")
+        canvas#wavedisplay(width="1024", height="500")
+    #controls.hide
+        img#record(src="images/mic128.png" onclick="toggleRecording(this);")
+        a#save(href="#")
+        img(src="images/save.svg")
+
+
