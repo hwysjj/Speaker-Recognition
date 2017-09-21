@@ -13,12 +13,12 @@ html
     link(rel='stylesheet', href='/stylesheets/style.css')
 
   body(style="display: flex;min-height: 100vh; flex-direction: column;")
-    nav
+    nav(style="background-color: #4fc143;")
       .nav-wrapper
           a.brand-logo.center #{title}
     main.container(style="flex:1 0 auto;margin-top:50px;")
       block content
-    footer.page-footer(style="padding-top: 0")
+    footer.page-footer(style="padding-top: 0;background-color: #4fc143;")
       .footer-copyright
         .container.center
           | © 2017 Copyright GreenDot

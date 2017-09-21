@@ -2,7 +2,7 @@
 $(function () {
     $('#submit').click(function (){
         if(window.password === $('#password').val()){
-            Materialize.toast('Payment is none!', 3000, '', function () {
+            Materialize.toast('Payment is done!', 3000, '', function () {
                 window.location.href = '/summary';
             });
         } else {
@@ -26,6 +26,7 @@ $(function () {
     });
 });
 window.createProfile = function(url) {
+        $('#preload').removeClass('hide');
         var action = location.pathname.indexOf('identification') > -1 ?'verify':'enroll';
         if(action === 'verify'){
             createErollment('',url);
@@ -48,6 +49,8 @@ window.createProfile = function(url) {
         })
         .fail(function() {
             alert("error");
+            $('#preload').addClass('hide');
+
         });
     }
     function createErollment(id, blob){
@@ -83,16 +86,18 @@ window.createProfile = function(url) {
                 // processData: false
             })
             .done(function(data) {
+                $('#preload').addClass('hide');
                 if  (action!=='verify') {
                     Materialize.toast('Enroll Successfully!', 3000);
                     $('#record').hide();
                 } else {
-                    $('#result').html('Hi <span class="lime">' + data.fName + ' ' + data.lName + '</span>, please input your payment passward:'  );
-                    $('#confirmPassword').removeClass('hide');
+                    $('#result').html('Hi <span style="font-size:36px;" class="lime">' + data.fName + ' ' + data.lName + '</span>, $20 is deducted from your account!'  );
+                    // $('#confirmPassword').removeClass('hide');
                     window.password = data.password;
                 }
             })
             .fail(function() {
+                $('#preload').addClass('hide');
                 if  (action!=='verify') {
                     Materialize.toast('Enroll Failed! Please try again', 3000);
                 } else {

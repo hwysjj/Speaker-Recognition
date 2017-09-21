@@ -106,7 +106,7 @@ function retreivestatus(location,res, type, enrollmentinfo) {
             res.sendStatus(200);
           });
         }
-        else if(type === 'indentification' && body.processingResult.identifiedProfileId !== '00000000-0000-0000-0000-000000000000') {
+        else if(type === 'indentification' && body.processingResult.identifiedProfileId !== '00000000-0000-0000-0000-000000000000'&& body.processingResult.confidence === 'High') {
             var profiles = [];
             profiles = enrollmentinfo.filter(x => {
               return x.profileid === body.processingResult.identifiedProfileId

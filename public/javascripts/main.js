@@ -58,14 +58,12 @@ function toggleRecording( e ) {
         // stop recording
         audioRecorder.stop();
         e.classList.remove("recording");
-        $('#preload').addClass('hide');
         audioRecorder.getBuffers( gotBuffers );
     } else {
         // start recording
         if (!audioRecorder)
             return;
         e.classList.add("recording");
-        $('#preload').removeClass('hide');
         audioRecorder.clear();
         audioRecorder.record();
     }
