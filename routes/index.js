@@ -95,7 +95,7 @@ function retreivestatus(location,res, type, enrollmentinfo) {
       "Ocp-Apim-Subscription-Key":"9630458358cb45f5b84e84183200b897"
     },
   }, function (e, r, body) {
-    var a =1;
+    var number = 15;
     if(r.statusCode === 200) {
       body = JSON.parse(body);
       if (body.status && body.status === "succeeded"){
@@ -105,6 +105,14 @@ function retreivestatus(location,res, type, enrollmentinfo) {
             if (err) throw err;
             res.sendStatus(200);
           });
+        }
+        else if(type === 'indentification' && body.processingResult.enrollmentStatus === 'Enrolling' ) {
+          setTimeout(function(){
+            number--;
+            if(number > 0) {
+              retreivestatus(location,res, type, enrollmentinfo);
+            }
+          }, 3000);
         }
         else if(type === 'indentification' && body.processingResult.identifiedProfileId !== '00000000-0000-0000-0000-000000000000'&& body.processingResult.confidence === 'High') {
             var profiles = [];
@@ -119,6 +127,13 @@ function retreivestatus(location,res, type, enrollmentinfo) {
         } else {
           res.sendStatus(403);
         }
+      } else if(body.status && body.status === "running") {
+        setTimeout(function(){
+          number--;
+          if(number > 0) {
+            retreivestatus(location,res, type, enrollmentinfo);
+          }
+        }, 3000);
       } else {
         res.sendStatus(403);
       }

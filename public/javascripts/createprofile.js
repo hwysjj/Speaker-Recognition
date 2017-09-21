@@ -91,8 +91,8 @@ window.createProfile = function(url) {
                     Materialize.toast('Enroll Successfully!', 3000);
                     $('#record').hide();
                 } else {
-                    $('#result').html('Hi <span style="font-size:36px;" class="lime">' + data.fName + ' ' + data.lName + '</span>, $20 is deducted from your account!'  );
-                    // $('#confirmPassword').removeClass('hide');
+                    $('#result').html('Hi <span style="font-size:36px;" class="lime">' + data.fName + ' ' + data.lName + '</span>, please input your password:'  );
+                    $('#confirmPassword').removeClass('hide');
                     window.password = data.password;
                 }
             })
