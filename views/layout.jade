@@ -14,11 +14,12 @@ html
 
   body(style="display: flex;min-height: 100vh; flex-direction: column;")
     nav(style="background-color: #4fc143;")
-      .nav-wrapper
-          a.brand-logo.center #{title}
+      .nav-wrapper(style="display:flex;")
+        img(src="/images/logo.svg", alt="", style="width:200px;")
+        a.brand-logo.center #{title}
     main.container(style="flex:1 0 auto;margin-top:50px;")
       block content
     footer.page-footer(style="padding-top: 0;background-color: #4fc143;")
       .footer-copyright
         .container.center
-          | © 2017 Copyright GreenDot
+          | © 2017 Powered by Super-V
